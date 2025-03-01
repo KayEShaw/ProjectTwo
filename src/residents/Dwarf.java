@@ -5,6 +5,7 @@ public class Dwarf extends MiddleEarthCharacter{
 	//CONSTRUCTOR
 	public Dwarf(String name, double health, double power) {
 		super(name, health, power);
+		System.out.println("Dwarf character created ("+name+")");
 	}
 	
 	@Override
@@ -24,6 +25,9 @@ public class Dwarf extends MiddleEarthCharacter{
 		else if(target.getRace().equals("Orc")) {
 			target.setHealthStat(target.getHealthStat() - this.getPowerLvl());
 			return true;
+		}
+		else {
+			System.out.println("no damage done");
 		}
 		return false;
 	}
