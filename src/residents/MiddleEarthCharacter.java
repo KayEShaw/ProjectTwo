@@ -1,7 +1,7 @@
 package residents;
 
 //this is a abstract class for the middle earth characters
-abstract class MiddleEarthCharacter {
+public abstract class MiddleEarthCharacter {
 
 private String characterName;
 private double healthStat;
