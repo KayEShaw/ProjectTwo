@@ -33,8 +33,8 @@ public class CharacterManager {
 				int newSize = characters.length * 2; //double current size 
 				MiddleEarthCharacter[] newCharacters = new MiddleEarthCharacter[newSize]; // makes new array
 				
-				for(int i = 0; i < characters.length; i++) {
-					newCharacters[i] = characters[i]; //copy old elements 
+				for(int j = 0; j < characters.length; j++) {
+					newCharacters[j] = characters[j]; //copy old elements 
 				}
 				
 				this.characters = newCharacters;
