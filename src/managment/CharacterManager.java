@@ -1,8 +1,9 @@
 package managment;
 
 import residents.MiddleEarthCharacter;
+import game.Mediator;
 
-public class CharacterManager {
+public class CharacterManager implements Mediator{
 	MiddleEarthCharacter[] characters;
 	int size;
 	
@@ -22,7 +23,7 @@ public class CharacterManager {
 	 * @param c; the character we need to add
 	 * @return
 	 */
-	boolean addCharacter(MiddleEarthCharacter c) {
+	public boolean addCharacter(MiddleEarthCharacter c) {
 		for(int i = 0; i < characters.length; i++) {
 			if(characters[i] != null) {
 				characters[i] = c;
@@ -71,7 +72,8 @@ public class CharacterManager {
 	 * @param power
 	 * @return
 	 */
-	boolean updateCharacter(MiddleEarthCharacter character, String name, int health, int power) {
+	@Override
+	public boolean updateCharacter(MiddleEarthCharacter character, String name, int health, int power) {
 		for(int i = 0; i < size; i++) {
 			if(characters[i] != null && characters[i].getCharacterName().equals(character.getCharacterName())) {
 				
@@ -102,7 +104,8 @@ public class CharacterManager {
 	 * @param character
 	 * @return; return true if character is removed and size is decremted otherwise its false
 	 */
-	boolean deleteCharacter(MiddleEarthCharacter character) {
+	@Override
+	public boolean deleteCharacter(MiddleEarthCharacter character) {
 		for(int i = 0; i < size; i++) {
 			if(characters[i] != null && characters[i].equals(character)) {
 				for(int j = 0; j < size - 1; i++) {
@@ -120,12 +123,25 @@ public class CharacterManager {
 	/**
 	 * This method displays all the characters in the array 
 	 */
-	void displayAllCharacters() {
+	public void displayAllCharacters() {
 		for(int i = 0; i < size; i++) {
 			if(characters[i] != null) {
 				characters[i].displayInfo();
 				//add display info 
 			}
 		}
+	}
+
+
+	@Override
+	public void executeAll() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void exit() {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -6,6 +6,7 @@ public class Elf extends MiddleEarthCharacter{
 		super(name, health, power);
 		System.out.println("Elf character created ("+ name +")");
 	}
+	
 	@Override
 	public String getRace() {
 		return "Elf";
