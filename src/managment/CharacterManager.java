@@ -123,6 +123,7 @@ public class CharacterManager {
 	void displayAllCharacters() {
 		for(int i = 0; i < size; i++) {
 			if(characters[i] != null) {
+				characters[i].displayInfo();
 				//add display info 
 			}
 		}
