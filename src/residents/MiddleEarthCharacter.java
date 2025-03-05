@@ -46,9 +46,9 @@ public double getPowerLvl() {
 public void setPowerLvl(double powerLvl) {
 	this.powerLvl = powerLvl;
 }
-
+ 
 //METHODS
 void displayInfo() {
- 
+ System.out.println("Name: ["+ this.getCharacterName() +"] Health: ["+ this.getHealthStat() +"] Power: ["+ this.getPowerLvl() +"]");
 }
 }
