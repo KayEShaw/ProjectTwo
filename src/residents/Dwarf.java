@@ -17,7 +17,8 @@ public class Dwarf extends MiddleEarthCharacter{
 	}
 	
 	/**
-	 * This method returns the type of character
+	 * this is an override method for an abstract method in MiddleEarthCharacter
+	 * this returns the type of the subclass Human
 	 */
 	@Override
 	public String getRace() {
