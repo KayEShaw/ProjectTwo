@@ -155,7 +155,7 @@ public class CharacterManager implements Mediator{
 				
 				System.out.println(current.getCharacterName() + " is attacking " + target.getCharacterName());
 				current.attack(target);
-				if(target.getHealthStat() == 0) {
+				if(target.getHealthStat() <= 0) {
 					System.out.println(target.getCharacterName()+" died!!!");
 					deleteCharacter(target);
 				}
