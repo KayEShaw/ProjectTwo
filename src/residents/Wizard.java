@@ -2,14 +2,31 @@ package residents;
 
 public class Wizard extends MiddleEarthCharacter{
 	//CONSTRUCTOR
+	/**
+	 * constructor for Wizard()
+	 * initialized the wizard character with name, health, and power
+	 * @param name
+	 * @param health
+	 * @param power
+	 */
 	public Wizard(String name, double health, double power) {
 		super(name, health, power);
 		System.out.println("Wizard character created ("+ name +")");
 	}
+	/**
+	 * override of the MiddleEarthCharacter abstract method
+	 * this returns the type of this subclasses character
+	 */
 	@Override
 	String getRace() {
 		return "Wizard";
 	}
+	/**
+	 * override of the MiddleEarthCharacter abstract method
+	 * this returns the boolean result of the outcome of an attack 
+	 * between this class and the target
+	 * @param target
+	 */
 	@Override
 	public boolean attack(MiddleEarthCharacter target) {
 		if(target.getRace().equals("Dwarf")) {

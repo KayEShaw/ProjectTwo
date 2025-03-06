@@ -9,12 +9,15 @@ import residents.Human;
 import residents.Orc;
 import residents.Wizard;
 
-
+/**
+ * seperate class for the "Menu". Considered to be good practice.
+ * to prove the social experiment
+ */
 public class MenuProgram {
 	
 	private static CharacterManager characterManager;
 	/**
-	 * constructor for Menuprogram
+	 * constructor for Menu program
 	 * @param characterManager
 	 */
 	public MenuProgram(CharacterManager characterManager) {
