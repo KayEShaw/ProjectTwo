@@ -160,7 +160,6 @@ public class CharacterManager implements Mediator{
 
 	@Override
 	public void exit() {
-		// TODO Auto-generated method stub
-		
+//implemented in MiddleEarthApp		
 	}
 }
