@@ -21,7 +21,7 @@ public class CharacterManager implements Mediator{
 	 * length. Then it creates a new array using the newSize, uses a for loop to copy the old 
 	 * components into the new one and then adds the character.
 	 * @param c; the character we need to add
-	 * @return
+	 * @return; returns true if character is added successfully 
 	 */
 	public boolean addCharacter(MiddleEarthCharacter c) {
 		if(characters[characters.length - 1] == null) {
@@ -67,15 +67,13 @@ public class CharacterManager implements Mediator{
 	
 	
 	/**
-	 * This method updates the information (name, health, power) of an existing character in the array, 
-	 * if any update is made, it returns true. If no changes are made or if the character is not found 
-	 * it returns false.
+	 * This method updates the information (name, health, power) of an existing character in the array 
 	 *  
-	 * @param character
-	 * @param name
-	 * @param health
-	 * @param power
-	 * @return
+	 * @param character; type of character
+	 * @param name; name of character
+	 * @param health; health of character
+	 * @param power; power of character
+	 * @return; true if update is made, false if not changes are made or character is not found
 	 */
 	@Override
 	public boolean updateCharacter(MiddleEarthCharacter character, String name, int health, int power) {
@@ -107,7 +105,7 @@ public class CharacterManager implements Mediator{
 	 * on the right hand side to the left side one. Set the last index to null for 
 	 * not duplicates.Reduce the size.
 	 * @param character
-	 * @return; return true if character is removed and size is decremted otherwise its false
+	 * @return; return true if character is removed and size is decrement otherwise its false
 	 */
 	@Override
 	public boolean deleteCharacter(MiddleEarthCharacter character) {
@@ -129,7 +127,7 @@ public class CharacterManager implements Mediator{
 	
 	
 	/**
-	 * This method displays all the characters in the array 
+	 * This method displays all the characters in the array using displayInfo()
 	 */
 	public void displayAllCharacters() {
 		for(int i = 0; i < size; i++) {
@@ -140,7 +138,14 @@ public class CharacterManager implements Mediator{
 		}
 	}
 
-
+	
+	/**
+	 * This method goes through all the characters in the characters array and simulates a battle
+	 * against other characters. If a characters health reaches zero after an attack it displays which
+	 * character has died and deletes them from the array. It also prints out which character is currently
+	 * doing the attacking and which one is getting attacked.
+	 *  
+	 */
 	@Override
 	public void executeAll() {
 		for(int i = 0; i < (size); i++){
@@ -157,7 +162,7 @@ public class CharacterManager implements Mediator{
 			}
 		}
 	}
-
+	
 	@Override
 	public void exit() {
 		// TODO Auto-generated method stub
