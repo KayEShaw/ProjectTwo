@@ -13,10 +13,18 @@ import residents.Wizard;
 public class MenuProgram {
 	
 	private static CharacterManager characterManager;
+	/**
+	 * constructor for Menuprogram
+	 * @param characterManager
+	 */
 	public MenuProgram(CharacterManager characterManager) {
 		this.characterManager = characterManager;
 	}
-	
+
+	/**
+	 * this is a menu method to print the options for the user. 
+	 * it is connected to the switch-case in MiddleEarthApp
+	 */
 	public static void Menu() {//options for the user to choose from
 		System.out.println("\n-----Middle Earth Game-----");
 		System.out.println("1. Create and add a character");
@@ -27,7 +35,12 @@ public class MenuProgram {
 		System.out.println("6. Exit the game");
 		System.out.println("Choose an option: ");			
 	}
-	
+	/**
+	 * this is a MenuProgram method to update the character
+	 * this is implemented in the MiddleEarthApp switch-case
+	 * takes in scanner input from the user
+	 * @param scanner
+	 */
 	public void updateCharacter(Scanner scanner) {
 		System.out.println("Enter the characters name to update: ");
 		String name = scanner.nextLine();
@@ -53,6 +66,12 @@ public class MenuProgram {
 			System.out.println("Character not found");
 		}
 	}
+	/**
+	 * this is a MenuProgram method to delete a character 
+	 * implements charactermanager.deleteCharacter
+	 * used in MiddleEarthApp switch-case
+	 * @param scanner
+	 */
 	public void deleteCharacter(Scanner scanner) {
 		System.out.println("Enter the characters name to delete: ");
 		String name = scanner.nextLine();
@@ -69,6 +88,11 @@ public class MenuProgram {
 			System.out.println("Character not found");
 		}	
 	}
+	/**
+	 * this is a method to create a character
+	 * it is implemented in the MiddleEarthApp switch-case
+	 * @param scanner
+	 */
 	public static void createCharacter(Scanner scanner) {
 	
 		System.out.println("\nChoose the type for your character:");

@@ -13,6 +13,7 @@ public class MiddleEarthApp {
 		MiddleEarthCouncil version = MiddleEarthCouncil.getInstance();
 		CharacterManager characterManager = version.getCharacterManager();
 		
+		//implementing menuProgram for a cleaner main class
 		MenuProgram menuProgram = new MenuProgram(characterManager);
 		Scanner scanner = new Scanner(System.in);//standard input stream
 		
@@ -23,6 +24,7 @@ public class MiddleEarthApp {
 			
 			int answer = scanner.nextInt();
 			scanner.nextLine();
+		//switch - case for every option offered in the MenuProgram
 		switch(answer) {
 		case 1:
 			//making and adding characters
