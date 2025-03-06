@@ -3,11 +3,7 @@ package game;
 import managment.CharacterManager;
 import residents.MiddleEarthCharacter;
 import residents.MiddleEarthCouncil;
-import residents.Elf;
-import residents.Dwarf;
-import residents.Human;
-import residents.Orc;
-import residents.Wizard;
+import java.util.Scanner;
 
 
 public class MiddleEarthApp {
@@ -17,65 +13,48 @@ public class MiddleEarthApp {
 		MiddleEarthCouncil version = MiddleEarthCouncil.getInstance();
 		CharacterManager characterManager = version.getCharacterManager();
 		
-		//creating characters
-		MiddleEarthCharacter froto = new Elf("froto", 100, 2);
-		MiddleEarthCharacter angry = new Dwarf("mean", 100, 2);
-		MiddleEarthCharacter sleepy = new Human("sad", 100, 2);
-		MiddleEarthCharacter doapy = new Orc("stupid", 100, 2);
-		MiddleEarthCharacter happy = new Wizard("smiles", 100, 2);
-
-		//adding all characters
-		boolean status = false;
+		MenuProgram menuProgram = new MenuProgram(characterManager);
+		Scanner scanner = new Scanner(System.in);//standard input stream
 		
-		status = characterManager.addCharacter(froto);
-		if(status) {
-			System.out.println("added!");
-		}else {
-			System.out.println("not added");
+		boolean playing = true;
+		
+		while(playing) {
+			MenuProgram.Menu();
+			
+			int answer = scanner.nextInt();
+			scanner.nextLine();
+		switch(answer) {
+		case 1:
+			//making and adding characters
+			MenuProgram.createCharacter(scanner);
+			break;
+		case 2:
+			//displaying characters
+			characterManager.displayAllCharacters();
+			break;
+		case 3:
+			//updating a character
+			menuProgram.updateCharacter(scanner);
+			break;
+		case 4:
+			//delete a character
+			menuProgram.deleteCharacter(scanner);
+			break;
+		case 5:
+			//Execute all attacks
+			characterManager.executeAll();
+			break;
+		case 6:
+			//exit the game
+			System.out.println("Game over.");
+			playing = false;
+			break;
+		default:
+			System.out.println("Invalid option! Please try again");	
 		}
-		status = characterManager.addCharacter(angry);
-		if(status) {
-			System.out.println("added!");
-		}else {
-			System.out.println("not added");
-		}
-		status = characterManager.addCharacter(sleepy);
-		if(status) {
-			System.out.println("added!");
-		}else {
-			System.out.println("not added");
-		}
-		status = characterManager.addCharacter(doapy);
-		if(status) {
-			System.out.println("added!");
-		}else {
-			System.out.println("not added");
-		}
-		status = characterManager.addCharacter(happy);
-		if(status) {
-			System.out.println("added!");
-		}else {
-			System.out.println("not added");
-		}
-		
-		characterManager.displayAllCharacters();
-		
-		
-		//updating characters
-		status = characterManager.updateCharacter(froto, "better froto", 15, 3);
-		if(status == true) {
-			System.out.println("Character updated");
-		}else {
-			System.out.println("Character not updated");
-		}		
-		characterManager.displayAllCharacters();
-		
-		//attacking them all
-		characterManager.executeAll();
-		
-		characterManager.displayAllCharacters();
-		
+	}
+		scanner.close();
+}
 
 	}
 
-}

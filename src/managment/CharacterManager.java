@@ -56,7 +56,7 @@ public class CharacterManager implements Mediator{
 	 * @param name; the name of the character to find 
 	 * @return; returns character at certain index given the name 
 	 */
-	MiddleEarthCharacter getCharacter(String name) {
+	public MiddleEarthCharacter getCharacter(String name) {
 		for(int i = 0; i < size; i++) {
 			if(characters[i] != null && characters[i].getCharacterName().equals(name)) {
 				return characters[i];
