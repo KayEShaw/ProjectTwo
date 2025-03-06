@@ -12,24 +12,24 @@ public class Human extends MiddleEarthCharacter{
 		return "Human";
 	}
 	@Override
-	boolean attack(MiddleEarthCharacter target) {
+	public boolean attack(MiddleEarthCharacter target) {
 		if(target.getRace().equals("Wizard")) {
 			target.setHealthStat((target.getHealthStat()) - (1.5 * this.getPowerLvl()));
-			System.out.println("attacked Wizard with 1.5x damage");
+			System.out.println("Human attacked Wizard with 1.5x damage");
 			return true;
 		}
 		else if(target.getRace().equals("Elf")) {
 			target.setHealthStat((target.getHealthStat()) - (this.getPowerLvl()));
-			System.out.println("attacked Elf");
+			System.out.println("Human attacked Elf");
 			return true;
 		}
 		else if(target.getRace().equals("Dwarf")) {
 			target.setHealthStat((target.getHealthStat()) - (this.getPowerLvl()));
-			System.out.println("attacked Dwarf");
+			System.out.println("Human attacked Dwarf");
 			return true;
 		}
 		else {
-			System.out.println("no damage done");
+			System.out.println("Human attacked "+ target.getRace()+" no damage done");
 		}
 		return false;
 	}

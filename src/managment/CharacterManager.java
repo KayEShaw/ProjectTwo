@@ -24,13 +24,16 @@ public class CharacterManager implements Mediator{
 	 * @return
 	 */
 	public boolean addCharacter(MiddleEarthCharacter c) {
+		if(characters[characters.length - 1] == null) {
 		for(int i = 0; i < characters.length; i++) {
-			if(characters[i] != null) {
+			if(characters[i] == null) {
 				characters[i] = c;
 				size++;
+				System.out.println("added your character to array at position" + i);
 				return true;
 			}
-			else if(characters[i] == null) {
+		}
+		}else{
 				int newSize = characters.length * 2; //double current size 
 				MiddleEarthCharacter[] newCharacters = new MiddleEarthCharacter[newSize]; // makes new array
 				
@@ -39,11 +42,13 @@ public class CharacterManager implements Mediator{
 				}
 				
 				this.characters = newCharacters;
-				this.characters[characters.length/2] = c; //add it at the first open space 
+				characters[characters.length/2] = c; //add it at the first open space 
+				size++;
+				System.out.println("added at new array position "+ (characters.length / 2));
+				return true;
 			}
+		return false;
 		}
-		return true;
-	}
 	
 	/**
 	 * This method goes through the characters added in the array
@@ -108,14 +113,17 @@ public class CharacterManager implements Mediator{
 	public boolean deleteCharacter(MiddleEarthCharacter character) {
 		for(int i = 0; i < size; i++) {
 			if(characters[i] != null && characters[i].equals(character)) {
-				for(int j = 0; j < size - 1; i++) {
+				System.out.println("match found");
+				for(int j = i; j < size - 1; j++) {
 					characters[j] = characters[j+1];
 				}
 				characters[size-1] = null; //set last element to null
 				size--; //reduce size 
+				System.out.println("character" + i + " deleted");
 				return true; 
 			}
 		}
+		System.out.println("character not deleted, no match found");
 		return false;
 	}
 	
@@ -135,8 +143,19 @@ public class CharacterManager implements Mediator{
 
 	@Override
 	public void executeAll() {
-		// TODO Auto-generated method stub
-		
+		for(int i = 0; i < (size); i++){
+			for(int j = 0; j < (size); j++) {
+				MiddleEarthCharacter current = characters[i];
+				MiddleEarthCharacter target = characters[j];
+				
+				System.out.println(current.getCharacterName() + " is attacking " + target.getCharacterName());
+				current.attack(target);
+				if(target.getHealthStat() == 0) {
+					System.out.println(target.getCharacterName()+" died!!!");
+					deleteCharacter(target);
+				}
+			}
+		}
 	}
 
 	@Override

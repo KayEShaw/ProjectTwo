@@ -19,7 +19,7 @@ public MiddleEarthCharacter(String name, double health, double power) {
 }
 
 //ABSTRACT METHODS
-abstract boolean attack(MiddleEarthCharacter target);
+public abstract boolean attack(MiddleEarthCharacter target);
 abstract String getRace();
 
 //GETTERS AND SETTERS
