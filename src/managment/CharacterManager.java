@@ -24,6 +24,9 @@ public class CharacterManager implements Mediator{
 	 * @return; returns true if character is added successfully 
 	 */
 	public boolean addCharacter(MiddleEarthCharacter c) {
+		if(characters.length == 20) {
+			System.out.println("JESUS CHRIST ARE YOU BUILDING THE WHOLE VILLAGE");
+		}
 		if(characters[characters.length - 1] == null) {
 		for(int i = 0; i < characters.length; i++) {
 			if(characters[i] == null) {
